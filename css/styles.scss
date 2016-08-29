@@ -1,0 +1,256 @@
+$ui-color: rgba(255, 255, 255, 1);
+$ui-secondary-color: #0f5d0c;
+
+@mixin triangle-ui {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+@mixin no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin triangle-ui-left($size, $x_off, $y_off) {
+  @include triangle-ui();
+  bottom: $y_off;
+  left: $x_off;
+  border-top: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-right: $size solid $ui-color;
+}
+
+@mixin triangle-ui-right($size, $x_off, $y_off) {
+  @include triangle-ui();
+  bottom: $y_off;
+  right: $x_off;
+  border-top: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-left: $size solid $ui-color;
+}
+
+
+@mixin break-word {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+body {
+  background: url("../img/hangar-floor.jpg");
+  color: white;
+  @include no-select;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+input {
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 24px;
+}
+
+nav {
+  color: black;
+}
+
+h4 {
+  color: white;
+  text-align: center;
+  min-height: 50px;
+}
+
+.color-switcher {
+  position: relative;
+  margin-bottom: 20px;
+  height: 65px;
+  text-align: center;
+  .color-sample {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    top: 10px;
+    height: 42px;
+    width: 42px;
+  }
+  canvas {
+    position: relative;
+    top: 10px;
+    margin: 0;
+    padding: 0;
+    height: 42px;
+    width: 42px;
+  }
+  .tri-right {
+    top: 10px;
+  }
+  .tri-left {
+    top: 10px;
+  }
+}
+
+
+
+.overlay-right {
+  width: 300px;
+  position: fixed;
+  right: 0px;
+  top: 10%;
+}
+
+.launch {
+  position: relative;
+  top: 80px;
+  text-align: center;
+  border: 1px solid #317ed2;
+  padding: 30px 130px;
+  background-color: rgba(49, 126, 210, 0.49);
+  color: #317ed2;
+}
+.launch:hover {
+  background-color: rgba(54, 156, 255, 0.49);
+  color: white;
+  .tri-up {
+    border-bottom: 30px solid white;
+  }
+}
+
+.ship-config {
+  margin-top: 10%;
+}
+
+.display-panel {
+  background-color: black;
+  padding: 0px 15px;
+  border: 1px solid white;
+  h4 {
+    border-bottom: 1px solid white;
+    padding: 10px
+  }
+}
+
+.ship-container {
+  height: 525px;
+}
+
+.ship-stats {
+  border-bottom: 1px solid white;
+  padding: 20px 0px;
+  h5 {
+    margin-bottom: 5px;
+  }
+}
+.stat-bar {
+  height: 10px;
+  margin-bottom: 15px;
+}
+
+.header {
+  position: fixed;
+  text-align: center;
+  top: 0px;
+  left: 0px;
+  height: 10%;
+  width: 100%;
+  background-color: black;
+  border: 1px solid white;
+  h2 {
+    margin-top: 0px;
+    padding-top: 30px;
+  }
+}
+
+.bg-stripes {
+  position: fixed;
+  width: 5%;
+  height: 100%;
+  background-color: crimson;
+}
+
+.left-stripe {
+  top: 0px;
+  left: 30%;
+}
+
+.right-stripe {
+  top: 0px;
+  right: 30%;
+}
+
+.bg-bottom-border {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  height: 48px;
+  width: 100%;
+  background: url("../img/bottom-repeating.jpg") repeat-x;
+}
+
+
+.hangar-bg {
+}
+
+.ship-display {
+  text-align: center;
+  .ship-change {
+    position: relative;
+    bottom: -30px;
+    background-color: black;
+    border: 1px solid white;
+    h4 {
+      padding-top: 15px;
+    }
+
+  }
+}
+
+.device-selector {
+  position: relative;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.device-details {
+  min-height: 300px;
+  text-align: center;
+  .device-image {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .stat {
+    text-align: left;
+  }
+
+}
+
+.mini-tri-left {
+  @include triangle-ui-left(10px, 10px, 10px);
+}
+
+.mini-tri-right {
+  @include triangle-ui-right(10px, 10px, 10px);
+}
+
+.tri-left {
+  @include triangle-ui-left(20px, 3px, 10px);
+}
+
+.tri-right {
+  @include triangle-ui-right(20px, 3px, 10px);
+}
+
+.tri-up {
+  position: relative;
+  top: -30px;
+  width: 0;
+  height: 0;
+  border-bottom: 30px solid #317ed2;
+  border-right: 30px solid transparent;
+  border-left: 30px solid transparent;
+}
