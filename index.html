@@ -12,15 +12,14 @@
     <script type="text/javascript" src="js/loadout.js"></script>
 </head>
 <body>
-
-
-<div class="bg-stripes left-stripe"></div>
-<div class="bg-stripes right-stripe"></div>
-<div class="bg-bottom-border"></div>
-<header class="header">
-    <h2>Welcome to the Hangar</h2>
-</header>
 <article class="container hangar-bg" ng-controller="shipViewerController as shipViewer">
+    <div class="bg-stripes left-stripe"></div>
+    <div class="bg-stripes right-stripe"></div>
+    <header class="row header">
+        <h4>Welcome to the Hangar </h4>
+        <input ng-model="shipViewer.pilot_data.name" type="text" class="name-display" placeholder="shipViewer.pilot_data.name">
+        <p class="rank-display">Rank: {{shipViewer.pilot_data.rank}} </p>
+    </header>
     <div class="row ship-config">
         <div class="col-sm-3">
             <div class="display-panel">
@@ -35,9 +34,19 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="display-panel">
+<!--            <div class="display-panel">
                 <div class="row">
                     <h4>Paint Job</h4>
+                </div>
+                <div class="row color-switcher">
+                    <img id="sample-img" src="img/sample.png" class="color-sample">
+                    <a class="tri-right" ng-click="shipViewer.nextShipColor()"></a>
+                    <a class="tri-left" ng-click="shipViewer.prevShipColor()"></a>
+                </div>
+            </div>
+            <div class="display-panel">
+                <div class="row">
+                    <h4>Insignia</h4>
                 </div>
                 <div class="row color-switcher">
                     <img id="sample-img" src="img/sample.png" class="color-sample">
@@ -55,10 +64,6 @@
                 <a class="tri-right click-next-ship" ng-click="shipViewer.nextShip()"></a>
                 <a class="tri-left click-prev-ship" ng-click="shipViewer.prevShip()"></a>
             </div>
-            <button class="launch button" ng-click="shipViewer.confirmShipConfig()">
-                <span class="tri-up"></span>
-                <h1>Launch!</h1>
-            </button>
 
         </div>
         <div class="col-sm-3">
@@ -94,7 +99,7 @@
         </div>
         <div class="display-panel overlay-right">
             <div class="row">
-                <h4>Device Details</h4>
+                <h4>Details</h4>
             </div>
             <div class="row device-details">
                 <div ng-model="shipViewer.current_specs" ng-repeat="(stat, value) in shipViewer.deviceInspectionTarget track by $index">
@@ -115,9 +120,32 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <div class="bg-control-panel">
+        <div class="container">
+            <!--
+            <div class="col-sm-3 control-panel-display">
+                <button class="mission-change button" ng-click="shipViewer.openMissionSelect()">
+                    <h4>Change Mission</h4>
+                    <span class="tri-down"></span>
+                </button>
+            </div>
+            <div class="col-sm-6 control-panel-display">
+                <div class="current-mission"><h3>Current Mission: {{shipViewer.mission.name}}</h3><p>Other Pilots: {{shipViewer.mission.info}}</p></div>
+            </div>
+            <div class="col-sm-3 control-panel-display">
+                <button class="launch button" ng-click="shipViewer.confirmShipConfig()">
+                    <span class="tri-up"></span>
+                    <h4>Launch!</h4>
+                </button>
+            </div>
+            -->
+        </div>
+    </div>
+    <div class="bg-bottom-border"></div>
 </article>
+
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.4/js/tether.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>

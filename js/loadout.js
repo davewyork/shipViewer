@@ -23,9 +23,9 @@ var game_data = {
         "Rookie Pilot",
         "Red Shirt",
         "Crashy McCrashface",
-        "Look at me! I r a pilot!",
+        "'Look at me! I r a pilot!'",
         "New Recruit",
-        "Enter your name here"
+        "'Enter your name here'"
     ],
     ships: [
         {
@@ -172,6 +172,12 @@ angular.module('shipViewerApp', []).controller('shipViewerController', function(
         return sum;
     };
 
+    shipViewer.openMissionSelect = function(len){
+        return new Array(len);
+    };
+
+
+
     shipViewer.visualizeStat = function(len){
         return new Array(len);
     };
@@ -180,7 +186,7 @@ angular.module('shipViewerApp', []).controller('shipViewerController', function(
         var hex = color.toString(16);
         return hex.length == 1 ? "0" + hex : hex;
     };
-/*
+
     shipViewer.nextShipColor = function(){
         if(shipViewer.selected_color_val > 0){
             shipViewer.selected_color_val -= 5;
@@ -210,7 +216,7 @@ angular.module('shipViewerApp', []).controller('shipViewerController', function(
             this.hue(shipViewer.selected_color_val).render();
         });
     };
-*/
+
     shipViewer.getStatColor = function(value){
         if(value > 5) {
             return '#3AFF0C';
